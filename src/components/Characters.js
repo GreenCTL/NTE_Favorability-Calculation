@@ -200,4 +200,20 @@ export const characters = [
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
+    {
+        id: '16',
+        label: '安魂曲',
+        fullBodyPhoto:'https://i.meee.com.tw/whmvzhY.png',
+        icon: 'https://i.meee.com.tw/3WGC5dh.png',
+        smallBodyPhoto:'https://i.meee.com.tw/wEtBHjA.png',
+        intro:'放空咻、番茄百分百',
+        gifts:[
+            {giftName:"放空咻",exp:200,price:4000,src:"https://i.meee.com.tw/iAAZNly.png"},
+            {giftName:"番茄百分百",exp:100,price:300,src:"https://i.meee.com.tw/Z7NTB35.png"}
+        ],
+        list:"https://i.meee.com.tw/G5IPdKH.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+
+    },
 ]
