@@ -14,7 +14,7 @@ onMounted(async () => {
   if (hasVisited) {
     // 2. 唯讀：只獲取目前數字，不遞增
     try {
-      const response = await fetch(`https://api.counterapi.dev/v1/${slug}/up/`)
+      const response = await fetch(`https://api.counterapi.dev/v1/${slug}`)
       const data = await response.json()
       // 注意：這家 API 回傳的格式是 { count: 123 }
       views.value = data.count
@@ -25,7 +25,7 @@ onMounted(async () => {
   } else {
     // 3. 計數+1：呼叫 up 接口讓數字加 1
     try {
-      const response = await fetch(`https://api.counterapi.dev/v2/${slug}/hit`)
+      const response = await fetch(`https://api.counterapi.dev/v1/${slug}/up`)
       const data = await response.json()
       views.value = data.count
       
