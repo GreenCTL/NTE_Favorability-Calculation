@@ -1,40 +1,53 @@
 <template>
   <div class="visitor-counter">
-    <img v-if="shouldShowBadge" :src="badgeUrl" alt="瀏覽人次" />
-    
-    <span v-else class="pure-text-views">瀏覽人次：{{ cachedViews }} 次</span>
+    <span>瀏覽人次：{{ views }} 次</span>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const shouldShowBadge = ref(false)
-const badgeUrl = ref('')
-const cachedViews = ref('---')
+const views = ref('載入中...')
 
-onMounted(() => {
-  const siteDomain = 'nte-tools-favorability-calculation.netlify.app'
-  
-  // 1. 檢查這個瀏覽器分頁是否已經算過人數了
+onMounted(async () => {
+  // 1. 確保這個名字跟你的 CounterAPI 後台右邊的 Slug 完全一致
+  const slug = 'nte-tools-favorability' 
+
+  // 2. 檢查 Session 防刷小筆記
   const hasVisited = sessionStorage.getItem('has_visited_this_session')
 
   if (hasVisited) {
-    // 2. 如果算過了（按 F5），我們「絕對不加載」原本的計數圖片！
-    // 直接從 localStorage 拿上一次發送成功時存下來的數字，顯示成純文字
-    shouldShowBadge.value = false
-    cachedViews.value = localStorage.getItem('last_known_views') || '---'
+    // 3. 按 F5 重新整理：呼叫唯讀網址 (加上 JSONP 格式，徹底打破 CORS 封鎖！)
+    try {
+      const response = await fetch(`https://api.counterapi.dev/v1/${slug}?callback=jsonp`)
+      const text = await response.text()
+      
+      // 解析 JSONP 格式（把包裹在外面的 jsonp(...) 剝掉，只留下裡面的數字）
+      const jsonString = text.replace(/^jsonp\((.*)\);?$/, '$1')
+      const data = JSON.parse(jsonString)
+      
+      views.value = data.count
+    } catch (error) {
+      console.error('F5讀取失敗：', error)
+      views.value = '---'
+    }
   } else {
-    // 3. 如果是第一次進來，載入正常網址（後台自動 +1）
-    badgeUrl.value = `https://visitor-badge.laobi.icu/badge?page_id=${siteDomain}`
-    shouldShowBadge.value = true
-    
-    // 標記這張分頁已經看過了
-    sessionStorage.setItem('has_visited_this_session', 'true')
-    
-    // 💡 小技巧：因為我們沒辦法從圖片直接抓到數字，所以我們先預設一個基礎緩存
-    // 或者是等圖片載入後，隨時間或手動紀錄（這裡我們主要是為了防止重整畫面變空白）
-    localStorage.setItem('last_known_views', '讀取中（請重新整理）')
+    // 4. 第一次進入網頁：呼叫加 1 網址 (同樣帶上 JSONP 確保不卡 CORS)
+    try {
+      const response = await fetch(`https://api.counterapi.dev/v1/${slug}/up?callback=jsonp`)
+      const text = await response.text()
+      
+      const jsonString = text.replace(/^jsonp\((.*)\);?$/, '$1')
+      const data = JSON.parse(jsonString)
+      
+      views.value = data.count
+      
+      // 成功加 1 後，記錄到 session 裡，下次按 F5 就會走上面的唯讀路由
+      sessionStorage.setItem('has_visited_this_session', 'true')
+    } catch (error) {
+      console.error('初次計數失敗：', error)
+      views.value = '---'
+    }
   }
 })
 </script>
@@ -43,12 +56,6 @@ onMounted(() => {
 .visitor-counter {
   text-align: center;
   padding: 15px;
-}
-.visitor-counter img {
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.pure-text-views {
   font-size: 14px;
   color: #666;
   font-weight: bold;
