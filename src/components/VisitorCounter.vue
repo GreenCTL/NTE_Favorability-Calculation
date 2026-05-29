@@ -1,53 +1,39 @@
 <template>
   <div class="visitor-counter">
-    <span>瀏覽人次：{{ views }} 次</span>
+    <iframe
+      v-if="!isF5Refresh"
+      :src="`https://twcc.pureconcept.club/v1/hit/${slug}/record.svg`"
+      width="160"
+      height="30"
+      frameborder="0"
+      scrolling="no"
+      style="overflow:hidden;"
+    ></iframe>
+
+    <div v-else class="pure-text-views">
+      <span>📊 瀏覽人次已記錄</span>
+      <p class="tip-text">（同一次訪問內重複整理不重複計算）</p>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const views = ref('載入中...')
+const slug = 'nte-tools-favorability'
+const isF5Refresh = ref(false)
 
-onMounted(async () => {
-  // 1. 確保這個名字跟你的 CounterAPI 後台右邊的 Slug 完全一致
-  const slug = 'nte-tools-favorability' 
-
-  // 2. 檢查 Session 防刷小筆記
+onMounted(() => {
+  // 檢查這個分頁是否已經算過人數了
   const hasVisited = sessionStorage.getItem('has_visited_this_session')
 
   if (hasVisited) {
-    // 3. 按 F5 重新整理：呼叫唯讀網址 (加上 JSONP 格式，徹底打破 CORS 封鎖！)
-    try {
-      const response = await fetch(`https://api.counterapi.dev/v1/${slug}?callback=jsonp`)
-      const text = await response.text()
-      
-      // 解析 JSONP 格式（把包裹在外面的 jsonp(...) 剝掉，只留下裡面的數字）
-      const jsonString = text.replace(/^jsonp\((.*)\);?$/, '$1')
-      const data = JSON.parse(jsonString)
-      
-      views.value = data.count
-    } catch (error) {
-      console.error('F5讀取失敗：', error)
-      views.value = '---'
-    }
+    // 如果算過了（按 F5），我們啟用物理防刷：直接不渲染 iframe！
+    isF5Refresh.value = true
   } else {
-    // 4. 第一次進入網頁：呼叫加 1 網址 (同樣帶上 JSONP 確保不卡 CORS)
-    try {
-      const response = await fetch(`https://api.counterapi.dev/v1/${slug}/up?callback=jsonp`)
-      const text = await response.text()
-      
-      const jsonString = text.replace(/^jsonp\((.*)\);?$/, '$1')
-      const data = JSON.parse(jsonString)
-      
-      views.value = data.count
-      
-      // 成功加 1 後，記錄到 session 裡，下次按 F5 就會走上面的唯讀路由
-      sessionStorage.setItem('has_visited_this_session', 'true')
-    } catch (error) {
-      console.error('初次計數失敗：', error)
-      views.value = '---'
-    }
+    // 如果是第一次進來，標記分頁，並讓 iframe 顯示（去後台 +1）
+    isF5Refresh.value = false
+    sessionStorage.setItem('has_visited_this_session', 'true')
   }
 })
 </script>
@@ -56,8 +42,20 @@ onMounted(async () => {
 .visitor-counter {
   text-align: center;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pure-text-views {
   font-size: 14px;
-  color: #666;
+  color: #4caf50;
   font-weight: bold;
+}
+.tip-text {
+  font-size: 11px;
+  color: #999;
+  margin: 4px 0 0 0;
+  font-weight: normal;
 }
 </style>
