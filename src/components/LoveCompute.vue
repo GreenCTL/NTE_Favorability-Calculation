@@ -149,7 +149,7 @@ const handleCalculate = () => {
     // }
     //定義計算方法
     const baseExp = levelExpMap[currentLevel.value] || 0
-    const totalMaxExp = 51600
+    const totalMaxExp = 56100
     const result = totalMaxExp - currentExp.value - baseExp
 
     //測試用
