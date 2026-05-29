@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="nte-tools-page">
     <h2>【異環】角色好感度計算器</h2>
+    
     <div id="selectArea">
+      
       <DropdownMenu class="DropDownMenu" label="異能者選擇" :items="toolOptions" v-model="currentTool" />
       <a 
       href="https://1drv.ms/x/c/68dbb3e58497c8b8/IQCxHFJP3Y0wRpXlU_prkqPhAexfmCgZ38pSwUaxvAbfQFk?e=zr3qXo"
@@ -15,11 +17,15 @@
       <h2 v-else>請選擇一名角色</h2>
     </div>
   </div>
+  <footer>
+    <p><VisitorCounter /></p>
+  </footer>
 </template>
 
 <script setup>
 import DropdownMenu from './DropdownMenu.vue';
 import { ref } from 'vue';
+import VisitorCounter from './VisitorCounter.vue'
 
 import { characters } from './Characters.js';
 import CharacterPanel from './CharacterPanel.vue'
