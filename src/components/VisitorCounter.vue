@@ -1,39 +1,40 @@
 <template>
   <div class="visitor-counter">
-    <iframe
-      v-if="!isF5Refresh"
-      :src="`https://twcc.pureconcept.club/v1/hit/${slug}/record.svg`"
-      width="160"
-      height="30"
-      frameborder="0"
-      scrolling="no"
-      style="overflow:hidden;"
-    ></iframe>
-
-    <div v-else class="pure-text-views">
-      <span>📊 瀏覽人次已記錄</span>
-      <p class="tip-text">（同一次訪問內重複整理不重複計算）</p>
-    </div>
+    <span class="pure-text-views">
+      瀏覽人次：{{ cachedViews }} 次
+    </span>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const slug = 'nte-tools-favorability'
-const isF5Refresh = ref(false)
+const cachedViews = ref('讀取中')
 
-onMounted(() => {
-  // 檢查這個分頁是否已經算過人數了
+onMounted(async () => {
+  const counterKey = 'nte_tools_favorability_calculation_netlify_app_total_views'
   const hasVisited = sessionStorage.getItem('has_visited_this_session')
 
-  if (hasVisited) {
-    // 如果算過了（按 F5），我們啟用物理防刷：直接不渲染 iframe！
-    isF5Refresh.value = true
-  } else {
-    // 如果是第一次進來，標記分頁，並讓 iframe 顯示（去後台 +1）
-    isF5Refresh.value = false
-    sessionStorage.setItem('has_visited_this_session', 'true')
+  const action = hasVisited ? 'get' : 'hit'
+  const apiUrl = `https://countapi.mileshilliard.com/api/v1/${action}/${counterKey}`
+
+  try {
+    const res = await fetch(apiUrl)
+    const data = await res.json()
+
+    if (!res.ok) {
+      throw new Error(data.error || '讀取失敗')
+    }
+
+    cachedViews.value = Number(data.value).toLocaleString()
+    localStorage.setItem('last_known_views', cachedViews.value)
+
+    if (!hasVisited) {
+      sessionStorage.setItem('has_visited_this_session', 'true')
+    }
+  } catch (error) {
+    cachedViews.value = localStorage.getItem('last_known_views') || '讀取失敗'
+    console.error(error)
   }
 })
 </script>
@@ -42,20 +43,11 @@ onMounted(() => {
 .visitor-counter {
   text-align: center;
   padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
+
 .pure-text-views {
   font-size: 14px;
-  color: #4caf50;
+  color: #666;
   font-weight: bold;
-}
-.tip-text {
-  font-size: 11px;
-  color: #999;
-  margin: 4px 0 0 0;
-  font-weight: normal;
 }
 </style>
