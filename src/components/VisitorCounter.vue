@@ -5,6 +5,8 @@ const views = ref('載入中...')
 
 onMounted(async () => {
   // 定義你獨一無二的 ID (改成英文與連字號)
+
+  const slug = 'nte-tools-favorability'
   const ID = 'nte-tools-favorability-homepage'
 
   const hasVisited = sessionStorage.getItem('has_visited_this_session')
