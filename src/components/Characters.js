@@ -216,4 +216,16 @@ export const characters = [
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
 
     },
+    {
+        id: '17',
+        label: '卡厄斯',
+        fullBodyPhoto:'https://i.meee.com.tw/hU7XmQA.png',
+        icon: 'https://i.meee.com.tw/MNLyNH5.png',
+        smallBodyPhoto:'https://i.meee.com.tw/Nib22iM.png',
+        intro:'心獵鐵騎L1-邪惡粉碎、心獵鐵騎L2-靜待勝機',
+        gifts:[{exp:400,price:14400,src:"https://i.meee.com.tw/FcP49FM.png"}],
+        list:"https://i.meee.com.tw/ifHoIsE.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+    },
 ]
