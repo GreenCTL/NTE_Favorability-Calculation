@@ -228,4 +228,19 @@ export const characters = [
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
+    {
+        id: '18',
+        label: '真紅',
+        fullBodyPhoto:'https://i.meee.com.tw/sruTNjh.png',
+        icon: 'https://i.meee.com.tw/GJmtxzq.png',
+        smallBodyPhoto:'https://i.meee.com.tw/RQyN2MO.png',
+        intro:'爆走棉絨絨-強者之證、噗卡巧克力「繪里巡演紀念款」',
+        gifts:[
+            {exp:400,price:14400,src:"https://i.meee.com.tw/B4eXn4U.png"},
+            {exp:100,price:1050,src:"https://i.meee.com.tw/lzH10hE.png"}
+        ],
+        list:"https://i.meee.com.tw/tIZ5C85.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+    },
 ]
