@@ -243,4 +243,19 @@ export const characters = [
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
+    {
+        id: '19',
+        label: '伊洛伊',
+        fullBodyPhoto:'https://i.meee.com.tw/wsOKGF7.png',
+        icon: 'https://i.meee.com.tw/oEOEsxj.png',
+        smallBodyPhoto:'https://i.meee.com.tw/0OdRFWH.png',
+        intro:'幾何夜、幽夢',
+        gifts:[
+            {exp:400,price:14400,src:"https://i.meee.com.tw/dAMF50o.png"},
+            {exp:100,price:1050,src:"https://i.meee.com.tw/PbiqOZe.png"}
+        ],
+        list:"https://i.meee.com.tw/6wXE6xy.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+    },
 ]
