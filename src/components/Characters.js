@@ -251,8 +251,8 @@ export const characters = [
         smallBodyPhoto:'https://i.meee.com.tw/0OdRFWH.png',
         intro:'幾何夜、幽夢',
         gifts:[
-            {exp:400,price:14400,src:"https://i.meee.com.tw/dAMF50o.png"},
-            {exp:100,price:1050,src:"https://i.meee.com.tw/PbiqOZe.png"}
+            {exp:400,price:10000,src:"https://i.meee.com.tw/dAMF50o.png"},
+            {exp:400,price:10000,src:"https://i.meee.com.tw/PbiqOZe.png"}
         ],
         list:"https://i.meee.com.tw/6wXE6xy.png",
         error:'網路不穩定，請稍後再試試',
