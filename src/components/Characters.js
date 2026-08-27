@@ -257,5 +257,19 @@ export const characters = [
         list:"https://i.meee.com.tw/6wXE6xy.png",
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+    },{
+        id: '20',
+        label: '殘虹',
+        fullBodyPhoto:'https://i.meee.com.tw/nRbhzno.png',
+        icon: 'https://i.meee.com.tw/VTbV3MS.png',
+        smallBodyPhoto:'https://i.meee.com.tw/99cDy0R.png',
+        intro:'小夜曲、清涼涼提神藥',
+        gifts:[
+            {exp:400,price:10000,src:"https://i.meee.com.tw/JBcFsf6.png"},
+            {exp:400,price:10000,src:"https://i.meee.com.tw/2Xzqn9g.png"}
+        ],
+        list:"https://i.meee.com.tw/vBLunxJ.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
 ]
