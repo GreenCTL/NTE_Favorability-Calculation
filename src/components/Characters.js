@@ -257,7 +257,8 @@ export const characters = [
         list:"https://i.meee.com.tw/6wXE6xy.png",
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
-    },{
+    },
+    {
         id: '20',
         label: '殘虹',
         fullBodyPhoto:'https://i.meee.com.tw/nRbhzno.png',
@@ -269,6 +270,21 @@ export const characters = [
             {exp:100,price:600,src:"https://i.meee.com.tw/2Xzqn9g.png"}
         ],
         list:"https://i.meee.com.tw/vBLunxJ.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+    },
+    {
+        id: '21',
+        label: '靈可',
+        fullBodyPhoto:'https://i.meee.com.tw/OKZlgLm.png',
+        icon: 'https://i.meee.com.tw/CqYrEnT.png',
+        smallBodyPhoto:'https://i.meee.com.tw/uX9NcqG.png',
+        intro:'幻想曲、元氣兒童套餐',
+        gifts:[
+            {exp:200,price:3000,src:"https://i.meee.com.tw/1tifVss.png"},
+            {exp:100,price:450,src:"https://i.meee.com.tw/o8zFgha.png"}
+        ],
+        list:"https://i.meee.com.tw/NTN3RCZ.png",
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
