@@ -287,5 +287,21 @@ export const characters = [
         list:"https://i.meee.com.tw/NTN3RCZ.png",
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+    },   
+    {
+        id: '22',
+        label: '黑羽',
+        fullBodyPhoto:'https://i.meee.com.tw/EPhdQir.png',
+        icon: 'https://i.meee.com.tw/tbzz7Hk.png',
+        smallBodyPhoto:'https://i.meee.com.tw/pSS14NS.png',
+        intro:'環的冥思、結的藝術',
+        gifts:[
+            {exp:200,price:5000,src:"https://i.meee.com.tw/HAaXrcY.png"},
+            {exp:200,price:5000,src:"https://i.meee.com.tw/OfLgHig.png"}
+        ],
+        list:"https://i.meee.com.tw/PLmfpNw.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
+
 ]
