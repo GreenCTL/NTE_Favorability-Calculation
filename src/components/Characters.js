@@ -236,8 +236,8 @@ export const characters = [
         smallBodyPhoto:'https://i.meee.com.tw/RQyN2MO.png',
         intro:'爆走棉絨絨-強者之證、噗卡巧克力「繪里巡演紀念款」',
         gifts:[
-            {exp:400,price:14400,src:"https://i.meee.com.tw/B4eXn4U.png"},
-            {exp:100,price:1050,src:"https://i.meee.com.tw/lzH10hE.png"}
+            {giftName:'爆走棉絨絨-強者之證',exp:400,price:14400,src:"https://i.meee.com.tw/B4eXn4U.png"},
+            {giftName:'噗卡巧克力「繪里巡演紀念款」',exp:100,price:1050,src:"https://i.meee.com.tw/lzH10hE.png"}
         ],
         list:"https://i.meee.com.tw/tIZ5C85.png",
         error:'網路不穩定，請稍後再試試',
@@ -251,8 +251,8 @@ export const characters = [
         smallBodyPhoto:'https://i.meee.com.tw/0OdRFWH.png',
         intro:'幾何夜、幽夢',
         gifts:[
-            {exp:400,price:10000,src:"https://i.meee.com.tw/dAMF50o.png"},
-            {exp:400,price:10000,src:"https://i.meee.com.tw/PbiqOZe.png"}
+            {giftName:'幾何夜',exp:400,price:10000,src:"https://i.meee.com.tw/dAMF50o.png"},
+            {giftName:'幽夢',exp:400,price:10000,src:"https://i.meee.com.tw/PbiqOZe.png"}
         ],
         list:"https://i.meee.com.tw/6wXE6xy.png",
         error:'網路不穩定，請稍後再試試',
@@ -266,8 +266,8 @@ export const characters = [
         smallBodyPhoto:'https://i.meee.com.tw/99cDy0R.png',
         intro:'小夜曲、清涼涼提神藥',
         gifts:[
-            {exp:200,price:3000,src:"https://i.meee.com.tw/JBcFsf6.png"},
-            {exp:100,price:600,src:"https://i.meee.com.tw/2Xzqn9g.png"}
+            {giftName:'小夜曲',exp:200,price:3000,src:"https://i.meee.com.tw/JBcFsf6.png"},
+            {giftName:'清涼涼提神藥',exp:100,price:600,src:"https://i.meee.com.tw/2Xzqn9g.png"}
         ],
         list:"https://i.meee.com.tw/vBLunxJ.png",
         error:'網路不穩定，請稍後再試試',
@@ -281,8 +281,8 @@ export const characters = [
         smallBodyPhoto:'https://i.meee.com.tw/uX9NcqG.png',
         intro:'幻想曲、元氣兒童套餐',
         gifts:[
-            {exp:200,price:3000,src:"https://i.meee.com.tw/1tifVss.png"},
-            {exp:100,price:450,src:"https://i.meee.com.tw/o8zFgha.png"}
+            {giftName:'幻想曲',exp:200,price:3000,src:"https://i.meee.com.tw/1tifVss.png"},
+            {giftName:'元氣兒童套餐',exp:100,price:450,src:"https://i.meee.com.tw/o8zFgha.png"}
         ],
         list:"https://i.meee.com.tw/NTN3RCZ.png",
         error:'網路不穩定，請稍後再試試',
@@ -296,8 +296,8 @@ export const characters = [
         smallBodyPhoto:'https://i.meee.com.tw/pSS14NS.png',
         intro:'環的冥思、結的藝術',
         gifts:[
-            {exp:200,price:5000,src:"https://i.meee.com.tw/HAaXrcY.png"},
-            {exp:200,price:5000,src:"https://i.meee.com.tw/OfLgHig.png"}
+            {giftName:'環的冥思',exp:200,price:5000,src:"https://i.meee.com.tw/HAaXrcY.png"},
+            {giftName:'結的藝術',exp:200,price:5000,src:"https://i.meee.com.tw/OfLgHig.png"}
         ],
         list:"https://i.meee.com.tw/PLmfpNw.png",
         error:'網路不穩定，請稍後再試試',
@@ -305,3 +305,5 @@ export const characters = [
     },
 
 ]
+
+
