@@ -303,7 +303,21 @@ export const characters = [
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
-
+    {
+        id: '23',
+        label: '明音',
+        fullBodyPhoto:'https://i.meee.com.tw/X2hFrrG.png',
+        icon: 'https://i.meee.com.tw/NRVz3LW.png',
+        smallBodyPhoto:'https://i.meee.com.tw/62VEvJd.png',
+        intro:'斑斕夢、噗卡幸運星',
+        gifts:[
+            {giftName:'斑斕夢',exp:200,price:5000,src:"https://i.meee.com.tw/FltbXrH.png"},
+            {giftName:'噗卡幸運星',exp:100,price:450,src:"https://i.meee.com.tw/q9vSHBp.png"}
+        ],
+        list:"https://i.meee.com.tw/PLmfpNw.png",
+        error:'網路不穩定，請稍後再試試',
+        errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
+    },
 ]
 
 
