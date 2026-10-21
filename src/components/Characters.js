@@ -311,7 +311,7 @@ export const characters = [
         smallBodyPhoto:'https://i.meee.com.tw/62VEvJd.png',
         intro:'斑斕夢、噗卡幸運星',
         gifts:[
-            {giftName:'斑斕夢',exp:200,price:5000,src:"https://i.meee.com.tw/FltbXrH.png"},
+            {giftName:'燦爛之約',exp:200,price:4500,src:"https://i.meee.com.tw/R4AItr9.png"},
             {giftName:'噗卡幸運星',exp:100,price:450,src:"https://i.meee.com.tw/q9vSHBp.png"}
         ],
         list:"https://i.meee.com.tw/isc1juL.png",
