@@ -314,7 +314,7 @@ export const characters = [
             {giftName:'斑斕夢',exp:200,price:5000,src:"https://i.meee.com.tw/FltbXrH.png"},
             {giftName:'噗卡幸運星',exp:100,price:450,src:"https://i.meee.com.tw/q9vSHBp.png"}
         ],
-        list:"https://i.meee.com.tw/PLmfpNw.png",
+        list:"https://i.meee.com.tw/isc1juL.png",
         error:'網路不穩定，請稍後再試試',
         errorPhoto:'https://i.meee.com.tw/1mhHJDC.png'
     },
